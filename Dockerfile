@@ -10,4 +10,7 @@ RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug
 # Install and run Composer
 RUN curl -sS https://getcomposer.org/installer | php
+RUN mv composer.phar /usr/bin/composer
+RUN useradd -ms /bin/bash  deploy
+USER deploy
 # RUN php composer.phar install
